@@ -1,5 +1,9 @@
 package com.dragontoast.sorcerycards;
 
+import com.dragontoast.sorcerycards.Item.ModCreativeModeTab;
+import com.dragontoast.sorcerycards.Item.ModItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -31,6 +35,8 @@ public class SorceryCards
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public SorceryCards(IEventBus modEventBus, ModContainer modContainer)
     {
+        ModCreativeModeTab.register(modEventBus);
+        ModItems.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -52,9 +58,10 @@ public class SorceryCards
     }
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
-
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+            event.accept(ModItems.JOKER);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
