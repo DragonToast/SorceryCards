@@ -1,5 +1,6 @@
 package com.dragontoast.sorcerycards.Item;
 
+import com.dragontoast.sorcerycards.Block.ModBlocks;
 import com.dragontoast.sorcerycards.SorceryCards;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -16,7 +17,8 @@ public class ModCreativeModeTab {
             CREATIVE_MODE_TAB.register("sorcerycards", () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.JOKER.get())).title(Component.translatable("creativetab.sorcerycards_tab"))
                     .displayItems(((pParameters, pOutput) -> {
-                        pOutput.accept(ModItems.JOKER.get());
+                        pOutput.accept(ModItems.JOKER.get()); //adding .get() to this one works but for the DECK it gives an error. Let's see if it works without for DECK.
+                        pOutput.accept(ModBlocks.DECK);
                     }))
                     .build());
     public static void register (IEventBus eventBus){

@@ -1,5 +1,6 @@
 package com.dragontoast.sorcerycards;
 
+import com.dragontoast.sorcerycards.Block.ModBlocks;
 import com.dragontoast.sorcerycards.Item.ModCreativeModeTab;
 import com.dragontoast.sorcerycards.Item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
@@ -37,6 +38,7 @@ public class SorceryCards
     {
         ModCreativeModeTab.register(modEventBus);
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -47,9 +49,6 @@ public class SorceryCards
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
-
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -59,7 +58,7 @@ public class SorceryCards
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES){
             event.accept(ModItems.JOKER);
         }
     }
