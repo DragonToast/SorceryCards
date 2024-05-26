@@ -61,6 +61,20 @@ public class SorceryCards
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES){
             event.accept(ModItems.JOKER);
         }
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
+            event.accept(ModBlocks.DECK);
+        }
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.TOURMALINE);
+            event.accept(ModItems.RAW_TOURMALINE);
+        }
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+            event.accept(ModBlocks.TOURMALINE_BLOCK);
+        }
+        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS){
+            event.accept(ModBlocks.TOURMALINE_STONE_ORE);
+            event.accept(ModBlocks.TOURMALINE_DEEPSLATE_ORE);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

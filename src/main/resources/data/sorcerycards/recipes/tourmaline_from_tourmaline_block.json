@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "sorcerycards:tourmaline_block",
+  "ingredients": [
+    {
+      "item": "sorcerycards:tourmaline_block"
+    }
+  ],
+  "result": {
+    "id": "sorcerycards:tourmaline",
+    "count": 9
+  }
+}

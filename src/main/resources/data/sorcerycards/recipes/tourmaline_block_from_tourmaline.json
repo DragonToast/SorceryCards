@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "blocks",
+  "group": "sorcerycards: tourmaline_block",
+  "pattern":[
+    "###",
+    "###",
+    "###"
+  ],
+  "key":{
+    "#": {
+      "item": "sorcerycards:tourmaline"
+    }
+  },
+  "result": {
+    "id": "sorcerycards:tourmaline_block"
+  }
+}

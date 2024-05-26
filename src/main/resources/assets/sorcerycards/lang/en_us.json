@@ -1,5 +1,12 @@
 {
   "item.sorcerycards.joker": "Joker",
-  "creativetab.sorcerycards_tab": "SorceryCards",
-  "block.sorcerycards.deck": "Deck"
+  "item.sorcerycards.tourmaline": "Tourmaline",
+  "item.sorcerycards.raw_tourmaline": "Raw Tourmaline",
+
+  "block.sorcerycards.deck": "Deck",
+  "block.sorcerycards.tourmaline_stone_ore": "Tourmaline Ore",
+  "block.sorcerycards.tourmaline_deepslate_ore": "Deepslate Tourmaline Ore",
+  "block.sorcerycards.tourmaline_block": "Block of Tourmaline",
+
+  "creativetab.sorcerycards_tab": "SorceryCards"
 }

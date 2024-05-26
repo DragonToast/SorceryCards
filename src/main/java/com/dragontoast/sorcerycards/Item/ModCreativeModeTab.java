@@ -17,8 +17,14 @@ public class ModCreativeModeTab {
             CREATIVE_MODE_TAB.register("sorcerycards", () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.JOKER.get())).title(Component.translatable("creativetab.sorcerycards_tab"))
                     .displayItems(((pParameters, pOutput) -> {
-                        pOutput.accept(ModItems.JOKER.get()); //adding .get() to this one works but for the DECK it gives an error. Let's see if it works without for DECK.
+                        pOutput.accept(ModItems.JOKER.get());
+                        pOutput.accept(ModItems.TOURMALINE.get());
+                        pOutput.accept(ModItems.RAW_TOURMALINE.get());
+
                         pOutput.accept(ModBlocks.DECK);
+                        pOutput.accept(ModBlocks.TOURMALINE_BLOCK);
+                        pOutput.accept(ModBlocks.TOURMALINE_STONE_ORE);
+                        pOutput.accept(ModBlocks.TOURMALINE_DEEPSLATE_ORE);
                     }))
                     .build());
     public static void register (IEventBus eventBus){
