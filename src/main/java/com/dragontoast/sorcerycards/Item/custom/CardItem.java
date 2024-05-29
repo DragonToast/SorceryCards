@@ -1,8 +1,15 @@
 package com.dragontoast.sorcerycards.Item.custom;
 
+import com.mojang.serialization.Codec;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -11,7 +18,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.common.Tags;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +33,8 @@ public class CardItem extends Item {
     private static final Logger log = LoggerFactory.getLogger(CardItem.class);
     private final int cardValue;
     private final String cardSuit;
-    private final CompoundTag isActive = new CompoundTag();
+    private boolean isActive = false;
+    private boolean isActiveWasChanged = false;
 
     public CardItem(Properties pProperties, int pCardValue, String pCardSuit) {
         super(pProperties);
@@ -32,33 +43,41 @@ public class CardItem extends Item {
     }
 
     @Override
-    public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pRemainingUseDuration) {
-        super.onUseTick(pLevel, pLivingEntity, pStack, pRemainingUseDuration);
-
-        if (isActive.getBoolean("isActive")){
-            isActive.putBoolean("isActive", false);
-            pLivingEntity.sendSystemMessage(Component.literal("made false"));
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+        if (pPlayer.isShiftKeyDown() && !isActiveWasChanged) {
+            if (isActive) {
+                isActive = false;
+                isActiveWasChanged = true;
+            } else {
+                isActive = true;
+                isActiveWasChanged = true;
+            }
+            return InteractionResultHolder.success(pPlayer.getItemInHand(pUsedHand));
+        }
+        else if (pPlayer.isShiftKeyDown() && isActiveWasChanged) {
+            isActiveWasChanged = false;
+            return super.use(pLevel, pPlayer, pUsedHand);
         }
         else{
-            isActive.putBoolean("isActive", true);
-            pLivingEntity.sendSystemMessage(Component.literal("made true"));
+            return InteractionResultHolder.fail(pPlayer.getItemInHand(pUsedHand));
         }
     }
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
-        if (pEntity instanceof Player) {
-            Holder<MobEffect> effect = switch (cardSuit) {
-                case "hearts" -> MobEffects.HEALTH_BOOST;
-                case "spades" -> MobEffects.DIG_SPEED;
-                case "diamonds" -> MobEffects.SATURATION;
-                case "clubs" -> MobEffects.JUMP;
-                case "joker" -> MobEffects.MOVEMENT_SPEED;
-                default -> null;
-            };
-            if (effect != null) {
-                ((Player) pEntity).addEffect(new MobEffectInstance(effect, 600, cardValue));
+        if(isActive) {
+            if (pEntity instanceof Player) {
+                Holder<MobEffect> effect = switch (cardSuit) {
+                    case "hearts" -> MobEffects.HEALTH_BOOST;
+                    case "spades" -> MobEffects.DIG_SPEED;
+                    case "diamonds" -> MobEffects.SATURATION;
+                    case "clubs" -> MobEffects.JUMP;
+                    case "joker" -> MobEffects.MOVEMENT_SPEED;
+                    default -> null;
+                };
+                if (effect != null) {
+                    ((Player) pEntity).addEffect(new MobEffectInstance(effect, 600, cardValue));
+                }
             }
         }
     }
