@@ -58,7 +58,7 @@ public class CardItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        if(pStack.get(DataComponents.ENCHANTMENT_GLINT_OVERRIDE)) {
+        if(isActive) {
             if (pEntity instanceof Player) {
                 Holder<MobEffect> effect = switch (cardSuit) {
                     case "hearts" -> MobEffects.HEALTH_BOOST;
