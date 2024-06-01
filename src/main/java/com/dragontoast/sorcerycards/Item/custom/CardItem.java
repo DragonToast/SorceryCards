@@ -29,7 +29,6 @@ public class CardItem extends Item {
     @Override
     public void verifyComponentsAfterLoad(ItemStack pStack) {
         isActive = Boolean.TRUE.equals(pStack.get(DataComponents.ENCHANTMENT_GLINT_OVERRIDE));
-        super.verifyComponentsAfterLoad(pStack);
     }
 
     @Override
