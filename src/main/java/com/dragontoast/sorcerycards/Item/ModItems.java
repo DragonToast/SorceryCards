@@ -14,7 +14,7 @@ public class ModItems {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(SorceryCards.MODID);
 
-    public static final DeferredItem<Item> JOKER = ITEMS.register("joker", () -> new CardItem(new Item.Properties(), 14, "joker"));
+    public static final DeferredItem<Item> CARD = ITEMS.register("card", () -> new CardItem(new Item.Properties()));
     public static final DeferredItem<Item> TOURMALINE = ITEMS.registerItem("tourmaline", Item::new, new Item.Properties());
     public static final DeferredItem<Item> RAW_TOURMALINE = ITEMS.registerItem("raw_tourmaline", Item::new, new Item.Properties());
 

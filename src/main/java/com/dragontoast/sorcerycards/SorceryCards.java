@@ -3,8 +3,13 @@ package com.dragontoast.sorcerycards;
 import com.dragontoast.sorcerycards.Block.ModBlocks;
 import com.dragontoast.sorcerycards.Item.ModCreativeModeTab;
 import com.dragontoast.sorcerycards.Item.ModItems;
+import com.dragontoast.sorcerycards.Item.components.CardRecord;
+import com.dragontoast.sorcerycards.Item.components.ModDataComponents;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -39,6 +44,7 @@ public class SorceryCards
         ModCreativeModeTab.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModDataComponents.DATA_COMPONENT.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -58,18 +64,16 @@ public class SorceryCards
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES){
-            event.accept(ModItems.JOKER);
-        }
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
             event.accept(ModBlocks.DECK);
         }
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
-            event.accept(ModItems.TOURMALINE);
             event.accept(ModItems.RAW_TOURMALINE);
+            event.accept(ModItems.TOURMALINE);
         }
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
             event.accept(ModBlocks.TOURMALINE_BLOCK);
+
         }
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS){
             event.accept(ModBlocks.TOURMALINE_STONE_ORE);
@@ -90,7 +94,20 @@ public class SorceryCards
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            ItemProperties.register(ModItems.CARD.get(), new ResourceLocation(MODID, "value"),
+                    (stack, world, living, i) -> {
+                        CardRecord record = stack.get(ModDataComponents.CARD);
+                        if (record != null)
+                            return record.value();
+                        else return 0;
+                    });
+            ItemProperties.register(ModItems.CARD.get(), new ResourceLocation(MODID, "suitValue"),
+                    (stack, world, living, i) -> {
+                        CardRecord record = stack.get(ModDataComponents.CARD);
+                        if (record != null)
+                            return record.suitValue();
+                        else return 0;
+                    });
         }
     }
 }

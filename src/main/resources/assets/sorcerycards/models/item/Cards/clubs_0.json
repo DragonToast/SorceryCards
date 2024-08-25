@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "sorcerycards:item/suits/clubs",
+    "layer1": "sorcerycards:item/values/ace"
+  }
+}
