@@ -4,6 +4,7 @@ import com.dragontoast.sorcerycards.Item.components.CardRecord;
 import com.dragontoast.sorcerycards.Item.components.ModDataComponents;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffect;
@@ -20,7 +21,8 @@ public class CardItem extends Item {
     private boolean changedIsActive = false;
 
     public CardItem(Properties pProperties) {
-        super(pProperties);
+        super(pProperties.component(ModDataComponents.CARD.get(), new CardRecord(false, 0 , 0)));
+
     }
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
@@ -54,20 +56,27 @@ public class CardItem extends Item {
             int cardSuit = pStack.get(ModDataComponents.CARD.get()).suitValue();
             int cardValue = pStack.get(ModDataComponents.CARD.get()).value();
             if (pStack.get(ModDataComponents.CARD.get()).isActive()) {
-                if (pEntity instanceof Player) {
+                if (pEntity instanceof Player player) {
                     Holder<MobEffect> effect = switch (cardSuit) {
                         case 0 -> MobEffects.HEALTH_BOOST;
                         case 1 -> MobEffects.DIG_SPEED;
-                        case 2 -> MobEffects.SATURATION;
+                        case 2 -> MobEffects.MOVEMENT_SPEED;
                         case 3 -> MobEffects.JUMP;
-                        case 4 -> MobEffects.MOVEMENT_SPEED;
-                        default -> null;
+                        case 4 -> MobEffects.NIGHT_VISION;
+                        default -> MobEffects.LUCK;
                     };
-                    if (effect != null) {
-                        ((Player) pEntity).addEffect(new MobEffectInstance(effect, 20, cardValue));
+                    if  (player.getEffect(effect) != null && player.getEffect(effect).getDuration() < 3) {
+                        player.removeEffect(effect);
+                        player.addEffect(new MobEffectInstance(effect, 40, cardValue));
                     }
+                    else if (player.getEffect(effect) == null) ((Player) pEntity).addEffect(new MobEffectInstance(effect, 40, cardValue));
                 }
             }
         }
+    }
+
+    @Override
+    public Component getName(ItemStack pStack) {
+        return Component.translatable(this.getDescriptionId(pStack) + "." + pStack.get(ModDataComponents.CARD.get()).value()+"."+pStack.get(ModDataComponents.CARD).suitValue());
     }
 }

@@ -101,7 +101,7 @@ public class SorceryCards
                             return record.value();
                         else return 0;
                     });
-            ItemProperties.register(ModItems.CARD.get(), new ResourceLocation(MODID, "suitValue"),
+            ItemProperties.register(ModItems.CARD.get(), new ResourceLocation(MODID, "suit_value"),
                     (stack, world, living, i) -> {
                         CardRecord record = stack.get(ModDataComponents.CARD);
                         if (record != null)

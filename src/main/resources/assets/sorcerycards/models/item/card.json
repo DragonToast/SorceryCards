@@ -1,372 +1,372 @@
 {
   "parent": "minecraft:item/generated",
-  "ovverides": [
+  "overrides": [
     {
       "model": "sorcerycards:item/cards/hearts_0",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 0
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_1",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 1
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_2",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 2
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_3",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 3
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_4",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 4
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_5",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 5
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_6",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 6
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_7",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 7
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_8",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 8
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_9",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 9
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_10",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 10
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_11",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 11
       }
     },
     {
       "model": "sorcerycards:item/cards/hearts_12",
       "predicate": {
-        "sorcerycards:suitValue": 0,
+        "sorcerycards:suit_value": 0,
         "sorcerycards:value": 12
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_0",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 0
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_1",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 1
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_2",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 2
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_3",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 3
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_4",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 4
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_5",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 5
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_6",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 6
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_7",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 7
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_8",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 8
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_9",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 9
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_10",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 10
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_11",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 11
       }
     },
     {
       "model": "sorcerycards:item/cards/spades_12",
       "predicate": {
-        "sorcerycards:suitValue": 1,
+        "sorcerycards:suit_value": 1,
         "sorcerycards:value": 12
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_0",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 0
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_1",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 1
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_2",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 2
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_3",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 3
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_4",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 4
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_5",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 5
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_6",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 6
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_7",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 7
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_8",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 8
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_9",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 9
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_10",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 10
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_11",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 11
       }
     },
     {
       "model": "sorcerycards:item/cards/diamonds_12",
       "predicate": {
-        "sorcerycards:suitValue": 2,
+        "sorcerycards:suit_value": 2,
         "sorcerycards:value": 12
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_0",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 0
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_1",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 1
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_2",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 2
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_3",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 3
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_4",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 4
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_5",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 5
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_6",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 6
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_7",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 7
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_8",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 8
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_9",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 9
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_10",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 10
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_11",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 11
       }
     },
     {
       "model": "sorcerycards:item/cards/clubs_12",
       "predicate": {
-        "sorcerycards:suitValue": 3,
+        "sorcerycards:suit_value": 3,
         "sorcerycards:value": 12
       }
     }
   ],
   "textures": {
-    "layer0": "sorcerycards:item/cards/joker"
+    "layer0": "sorcerycards:item/joker"
   }
 }
