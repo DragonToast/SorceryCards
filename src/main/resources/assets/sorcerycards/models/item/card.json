@@ -364,6 +364,13 @@
         "sorcerycards:suit_value": 3,
         "sorcerycards:value": 12
       }
+    },
+    {
+      "model": "sorcerycards:item/cards/joker",
+      "predicate": {
+        "sorcerycards:suit_value": 4,
+        "sorcerycards:value": 13
+      }
     }
   ],
   "textures": {

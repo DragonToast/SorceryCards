@@ -31,7 +31,7 @@ public class ModCreativeModeTab {
                         pOutput.accept(ModBlocks.TOURMALINE_DEEPSLATE_ORE);
 
                         ItemStack stack = ModItems.CARD.toStack();
-                        stack.set(ModDataComponents.CARD, new CardRecord(false, 4, 13));
+                        stack.set(ModDataComponents.CARD, new CardRecord(false, 13, 4));
                         pOutput.accept(stack);
                         for(int a = 0; a < 4; a++){
                             for(int b = 0; b < 13; b++){
