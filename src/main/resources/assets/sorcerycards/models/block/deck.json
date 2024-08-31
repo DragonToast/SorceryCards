@@ -1,6 +1,59 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "sorcerycards:block/deck"
-  }
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "sorcerycards:block/deck",
+		"particle": "sorcerycards:block/deck"
+	},
+	"elements": [
+		{
+			"from": [6, 0, 5],
+			"to": [10, 1, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, 0, 5]},
+			"faces": {
+				"north": {"uv": [0, 7, 4, 8], "texture": "#0"},
+				"east": {"uv": [0, 6, 6, 7], "texture": "#0"},
+				"south": {"uv": [4, 7, 8, 8], "texture": "#0"},
+				"west": {"uv": [6, 6, 12, 7], "texture": "#0"},
+				"up": {"uv": [4, 6, 0, 0], "texture": "#0"},
+				"down": {"uv": [8, 0, 4, 6], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 8, 0]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 8, 0]
+		},
+		"firstperson_righthand": {
+			"rotation": [30, 0, 0],
+			"translation": [-7.25, 10, 11],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [30, 0, 0],
+			"translation": [-7.25, 10, 11],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"translation": [0, 8, 0],
+			"scale": [1.5, 1.5, 1.5]
+		},
+		"gui": {
+			"rotation": [-90, 0, 0],
+			"translation": [0, 0, -14.5],
+			"scale": [2, 2, 2]
+		},
+		"head": {
+			"rotation": [0, -90, 0],
+			"translation": [0, 32, 0],
+			"scale": [3.5, 3.5, 3.5]
+		},
+		"fixed": {
+			"rotation": [-90, 0, 0],
+			"translation": [0, 0, -14.5],
+			"scale": [2, 2, 2]
+		}
+	}
 }

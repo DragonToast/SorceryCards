@@ -1,7 +1,19 @@
 {
-  "variants":{
-  "": {
-    "model": "sorcerycards:block/deck"
+  "variants": {
+    "facing=east": {
+      "model": "sorcerycards:block/deck",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "sorcerycards:block/deck"
+    },
+    "facing=south": {
+      "model": "sorcerycards:block/deck",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "sorcerycards:block/deck",
+      "y": 270
+    }
   }
-}
 }
