@@ -17,7 +17,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModCreativeModeTab {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SorceryCards.MODID);
-
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SORCERYCARDS_TAB =
             CREATIVE_MODE_TAB.register("sorcerycards", () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.CARD.get())).title(Component.translatable("creativetab.sorcerycards_tab"))

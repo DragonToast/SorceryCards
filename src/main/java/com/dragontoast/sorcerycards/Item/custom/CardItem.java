@@ -21,8 +21,7 @@ public class CardItem extends Item {
     private boolean changedIsActive = false;
 
     public CardItem(Properties pProperties) {
-        super(pProperties.component(ModDataComponents.CARD.get(), new CardRecord(false, 0 , 0)));
-
+        super(pProperties.component(ModDataComponents.CARD.get(), new CardRecord(false, 13 , 4)));
     }
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
@@ -52,7 +51,7 @@ public class CardItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        if (pStack.get(ModDataComponents.CARD.get()) != null) {
+        if (pStack.get(ModDataComponents.CARD.get()) != null && !pLevel.isClientSide) {
             int cardSuit = pStack.get(ModDataComponents.CARD.get()).suitValue();
             int cardValue = pStack.get(ModDataComponents.CARD.get()).value();
             if (pStack.get(ModDataComponents.CARD.get()).isActive()) {
@@ -66,7 +65,6 @@ public class CardItem extends Item {
                         default -> MobEffects.LUCK;
                     };
                     if  (player.getEffect(effect) != null && player.getEffect(effect).getDuration() < 3) {
-                        player.removeEffect(effect);
                         player.addEffect(new MobEffectInstance(effect, 40, cardValue));
                     }
                     else if (player.getEffect(effect) == null) ((Player) pEntity).addEffect(new MobEffectInstance(effect, 40, cardValue));

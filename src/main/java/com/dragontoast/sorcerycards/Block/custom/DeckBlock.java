@@ -24,8 +24,14 @@ public class DeckBlock extends Block {
 
     @Override
     protected VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Block.box(6, 0, 5, 10, 1, 11);
+        Direction direction = pState.getValue(FACING);
+        return switch (direction){
+            case DOWN, UP, NORTH, SOUTH -> Block.box(6, 0, 5, 10, 1, 11);
+            case WEST, EAST ->  Block.box(5, 0, 6, 11, 1, 10);
+        };
     }
+
+
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
