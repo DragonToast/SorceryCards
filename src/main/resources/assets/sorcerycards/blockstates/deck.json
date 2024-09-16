@@ -14,6 +14,12 @@
     "facing=west": {
       "model": "sorcerycards:block/deck",
       "y": 270
+    },
+    "facing=up": {
+      "model": "sorcerycards:block/deck"
+    },
+    "facing=down": {
+      "model": "sorcerycards:block/deck"
     }
   }
 }

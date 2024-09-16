@@ -21,7 +21,7 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(SorceryCards.MODID);
 
 
-    public static final DeferredBlock DECK = registerBlock("deck", () -> new DeckBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIED_KELP_BLOCK)));
+    public static final DeferredBlock<Block> DECK = registerBlock("deck", () -> new DeckBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIED_KELP_BLOCK)));
     public static final DeferredBlock TOURMALINE_STONE_ORE = registerBlock("tourmaline_stone_ore", () -> new DropExperienceBlock(UniformInt.of(4, 8), BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE).strength(2.75f)));
     public static final DeferredBlock TOURMALINE_DEEPSLATE_ORE = registerBlock("tourmaline_deepslate_ore", () -> new DropExperienceBlock(UniformInt.of(4, 8),BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_DIAMOND_ORE).strength(4f)));
     public static final DeferredBlock TOURMALINE_BLOCK = registerBlock("tourmaline_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)));
