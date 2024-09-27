@@ -6,6 +6,7 @@ import com.dragontoast.sorcerycards.Item.ModCreativeModeTab;
 import com.dragontoast.sorcerycards.Item.ModItems;
 import com.dragontoast.sorcerycards.Item.components.CardRecord;
 import com.dragontoast.sorcerycards.Item.components.ModDataComponents;
+import com.dragontoast.sorcerycards.Menu.ModMenuTypes;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -47,6 +48,7 @@ public class SorceryCards
         ModBlocks.register(modEventBus);
         ModDataComponents.DATA_COMPONENT.register(modEventBus);
         ModEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
+        ModMenuTypes.MENU_TYPES.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 

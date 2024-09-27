@@ -1,4 +1,4 @@
-package com.dragontoast.sorcerycards.BlockEntity.Custom;
+package com.dragontoast.sorcerycards.BlockEntity.custom;
 
 import com.dragontoast.sorcerycards.Block.custom.DeckBlock;
 import com.dragontoast.sorcerycards.BlockEntity.ModEntityTypes;
@@ -9,23 +9,14 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.Mth;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
-import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ShulkerBoxMenu;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.ShulkerBoxBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
-import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
 
 import javax.annotation.Nullable;
 import java.util.stream.IntStream;
@@ -33,6 +24,7 @@ import java.util.stream.IntStream;
 public class DeckBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
     private static final int[] SLOTS = IntStream.range(0, 27).toArray();
     private NonNullList<ItemStack> itemStacks = NonNullList.withSize(27, ItemStack.EMPTY);
+
     public DeckBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModEntityTypes.DECK.get(), pPos, pBlockState);
     }
