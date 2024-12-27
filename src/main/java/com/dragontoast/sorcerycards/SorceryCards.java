@@ -1,6 +1,7 @@
 package com.dragontoast.sorcerycards;
 
 import com.dragontoast.sorcerycards.Block.ModBlocks;
+import com.dragontoast.sorcerycards.Entity.ModBlockEntities;
 import com.dragontoast.sorcerycards.Item.ModCreativeModeTab;
 import com.dragontoast.sorcerycards.Item.ModItems;
 import com.dragontoast.sorcerycards.Item.components.CardRecord;
@@ -44,6 +45,7 @@ public class SorceryCards
         ModCreativeModeTab.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
         ModDataComponents.DATA_COMPONENT.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
