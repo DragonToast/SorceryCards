@@ -14,7 +14,6 @@ public class DeckSlot extends Slot {
 
     @Override
     public boolean mayPlace(ItemStack pStack) {
-
         if(pStack.getComponents().get(ModDataComponents.CARD.get()).value() + pStack.getComponents().get(ModDataComponents.CARD.get()).suitValue()*13 == slot) {
             return true;
         }
