@@ -11,6 +11,8 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -46,6 +48,7 @@ public class SorceryCards
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+
         ModDataComponents.DATA_COMPONENT.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -82,6 +85,7 @@ public class SorceryCards
             event.accept(ModBlocks.TOURMALINE_DEEPSLATE_ORE);
         }
     }
+
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
