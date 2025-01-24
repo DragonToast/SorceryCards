@@ -16,14 +16,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.stream.IntStream;
 
 public class DeckBlockEntity extends RandomizableContainerBlockEntity {
-    public static final int COLUMNS = 9;
-    public static final int ROWS = 3;
-    public static final int CONTAINER_SIZE = 27;
-    public static final int EVENT_SET_OPEN_COUNT = 1;
-    public static final int OPENING_TICK_LENGTH = 10;
-    public static final float MAX_LID_HEIGHT = 0.5F;
-    public static final float MAX_LID_ROTATION = 270.0F;
-    private static final int[] SLOTS = IntStream.range(0, 27).toArray();
     private NonNullList<ItemStack> itemStacks = NonNullList.withSize(27, ItemStack.EMPTY);
 
     public DeckBlockEntity(BlockPos pos, BlockState state) {
@@ -32,7 +24,7 @@ public class DeckBlockEntity extends RandomizableContainerBlockEntity {
 
     @Override
     protected Component getDefaultName() {
-        return Component.translatable("container.Deck");
+        return Component.translatable("sorcerycard.block_entity.container.Deck");//here this fix name
     }
 
     @Override
