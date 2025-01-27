@@ -24,7 +24,7 @@ public class ModCreativeModeTab {
                         pOutput.accept(ModItems.TOURMALINE.get());
                         pOutput.accept(ModItems.RAW_TOURMALINE.get());
 
-                        pOutput.accept(ModBlocks.DECK);
+                        pOutput.accept(ModItems.DECK);
                         pOutput.accept(ModBlocks.TOURMALINE_BLOCK);
                         pOutput.accept(ModBlocks.TOURMALINE_STONE_ORE);
                         pOutput.accept(ModBlocks.TOURMALINE_DEEPSLATE_ORE);

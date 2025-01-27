@@ -21,10 +21,10 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(SorceryCards.MODID);
 
 
-    public static final DeferredBlock DECK = registerBlock("deck", () -> new DeckBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIED_KELP_BLOCK)));
-    public static final DeferredBlock TOURMALINE_STONE_ORE = registerBlock("tourmaline_stone_ore", () -> new DropExperienceBlock(UniformInt.of(4, 8), BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE).strength(2.75f)));
-    public static final DeferredBlock TOURMALINE_DEEPSLATE_ORE = registerBlock("tourmaline_deepslate_ore", () -> new DropExperienceBlock(UniformInt.of(4, 8),BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_DIAMOND_ORE).strength(4f)));
-    public static final DeferredBlock TOURMALINE_BLOCK = registerBlock("tourmaline_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)));
+    public static final DeferredBlock<Block> DECK = BLOCKS.register("deck", () -> new DeckBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIED_KELP_BLOCK)));
+    public static final DeferredBlock<Block> TOURMALINE_STONE_ORE = registerBlock("tourmaline_stone_ore", () -> new DropExperienceBlock(UniformInt.of(4, 8), BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE).strength(2.75f)));
+    public static final DeferredBlock<Block> TOURMALINE_DEEPSLATE_ORE = registerBlock("tourmaline_deepslate_ore", () -> new DropExperienceBlock(UniformInt.of(4, 8),BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_DIAMOND_ORE).strength(4f)));
+    public static final DeferredBlock<Block> TOURMALINE_BLOCK = registerBlock("tourmaline_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
@@ -37,4 +37,5 @@ public class ModBlocks {
     public static void register (IEventBus eventbus){
         BLOCKS.register(eventbus);
     }
+
 }
