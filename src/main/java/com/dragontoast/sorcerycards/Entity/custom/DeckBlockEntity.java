@@ -1,6 +1,7 @@
 package com.dragontoast.sorcerycards.Entity.custom;
 
 import com.dragontoast.sorcerycards.Entity.ModBlockEntities;
+import com.dragontoast.sorcerycards.Menu.custom.DeckMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -9,6 +10,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ChestMenu;
+import net.minecraft.world.inventory.FurnaceMenu;
 import net.minecraft.world.inventory.ShulkerBoxMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
@@ -24,7 +27,7 @@ public class DeckBlockEntity extends RandomizableContainerBlockEntity {
 
     @Override
     protected Component getDefaultName() {
-        return Component.translatable("sorcerycard.block_entity.container.Deck");//here this fix name
+        return Component.translatable("sorcerycard.block_entity.container.deck");
     }
 
     @Override
@@ -50,6 +53,7 @@ public class DeckBlockEntity extends RandomizableContainerBlockEntity {
     @Override
     protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         super.loadAdditional(pTag, pRegistries);
+        this.itemStacks = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         this.loadFromTag(pTag, pRegistries);
     }
 

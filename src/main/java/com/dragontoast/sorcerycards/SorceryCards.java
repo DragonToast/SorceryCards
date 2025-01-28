@@ -6,13 +6,13 @@ import com.dragontoast.sorcerycards.Item.ModCreativeModeTab;
 import com.dragontoast.sorcerycards.Item.ModItems;
 import com.dragontoast.sorcerycards.Item.components.CardRecord;
 import com.dragontoast.sorcerycards.Item.components.ModDataComponents;
+import com.dragontoast.sorcerycards.Menu.ModMenuTypes;
+import com.dragontoast.sorcerycards.Menu.custom.DeckScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -23,7 +23,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
@@ -48,10 +47,11 @@ public class SorceryCards
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
-
+        ModMenuTypes.register(modEventBus);
         ModDataComponents.DATA_COMPONENT.register(modEventBus);
         // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::registerScreens);
+
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
@@ -61,10 +61,8 @@ public class SorceryCards
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
     }
-
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
-
+    private void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(ModMenuTypes.DECK.get(), DeckScreen::new);
     }
 
     // Add the example block item to the building blocks tab
