@@ -12,34 +12,30 @@ import net.minecraft.world.item.ItemStack;
 
 public class DeckMenu extends AbstractContainerMenu {
     private final Container container;
-    public DeckMenu(int pContainerId, Inventory pPlayerInventory, Container container) {
-        this(pContainerId, pPlayerInventory, new SimpleContainer(27), container);
-    }
-
     public DeckMenu(int pContainerId, Inventory pPlayerInventory) {
         this(pContainerId, pPlayerInventory, new SimpleContainer(27));
     }
 
-    public DeckMenu(int pContainerId, Inventory pPlayerInventory, Container pContainer, Container container){
+    public DeckMenu(int pContainerId, Inventory pPlayerInventory, Container container){
         super(ModMenuTypes.DECK.get(), pContainerId);
-        checkContainerSize(pContainer, 27);
+        checkContainerSize(container, 27);
         this.container = container;
-        pContainer.startOpen(pPlayerInventory.player);
+        container.startOpen(pPlayerInventory.player);
 
         for (int row = 0; row < 3; row++) {
-            for (int collumn = 0; collumn < 9; collumn++) {
-                this.addSlot(new ShulkerBoxSlot(pContainer, collumn + row * 9, 8 + collumn * 18, 18 + row * 18));
+            for (int column = 0; column < 9; column++) {
+                this.addSlot(new DeckSlot(container, column + row * 9, 8 + column * 18, 18 + row * 18, row, column));
             }
         }
 
         for (int row = 0; row < 3; row++) {
-            for (int collumn = 0; collumn < 9; collumn++) {
-                this.addSlot(new Slot(pPlayerInventory, collumn + row * 9 + 9, 8 + collumn * 18, 84 + row * 18));
+            for (int column = 0; column < 9; column++) {
+                this.addSlot(new Slot(pPlayerInventory, column + row * 9 + 9, 8 + column * 18, 84 + row * 18));
             }
         }
 
-        for (int collumn = 0; collumn < 9; collumn++) {
-            this.addSlot(new Slot(pPlayerInventory, collumn, 8 + collumn * 18, 142));
+        for (int column = 0; column < 9; column++) {
+            this.addSlot(new Slot(pPlayerInventory, column, 8 + column * 18, 142));
         }
     }
 

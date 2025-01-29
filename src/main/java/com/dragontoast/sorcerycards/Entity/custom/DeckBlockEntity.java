@@ -42,7 +42,7 @@ public class DeckBlockEntity extends RandomizableContainerBlockEntity {
 
     @Override
     protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        return new ShulkerBoxMenu(pContainerId, pInventory, this);
+        return new DeckMenu(pContainerId, pInventory, this);
     }
 
     @Override

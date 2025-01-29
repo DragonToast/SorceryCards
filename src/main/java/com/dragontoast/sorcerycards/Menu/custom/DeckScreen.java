@@ -12,7 +12,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class DeckScreen extends AbstractContainerScreen<DeckMenu> {
 
-    private static final ResourceLocation CONTAINER_TEXTURE = new ResourceLocation("textures/gui/container/shulker_box.png"); //sorcerycards:textures/container/deck.png
+    private static final ResourceLocation CONTAINER_TEXTURE = new ResourceLocation("sorcerycards:textures/container/deck.png");
     public DeckScreen(DeckMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         this.imageHeight++;
