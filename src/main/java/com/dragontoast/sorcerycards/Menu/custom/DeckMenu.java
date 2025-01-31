@@ -13,29 +13,32 @@ import net.minecraft.world.item.ItemStack;
 public class DeckMenu extends AbstractContainerMenu {
     private final Container container;
     public DeckMenu(int pContainerId, Inventory pPlayerInventory) {
-        this(pContainerId, pPlayerInventory, new SimpleContainer(27));
+        this(pContainerId, pPlayerInventory, new SimpleContainer(54));
     }
 
     public DeckMenu(int pContainerId, Inventory pPlayerInventory, Container container){
         super(ModMenuTypes.DECK.get(), pContainerId);
-        checkContainerSize(container, 27);
+        checkContainerSize(container, 54);
         this.container = container;
         container.startOpen(pPlayerInventory.player);
 
-        for (int row = 0; row < 3; row++) {
-            for (int column = 0; column < 9; column++) {
-                this.addSlot(new DeckSlot(container, column + row * 9, 8 + column * 18, 18 + row * 18, row, column));
+        for (int row = 0; row < 4; row++) {
+            for (int column = 0; column < 13; column++) {
+                this.addSlot(new DeckSlot(container, column + row * 13, 8 + column * 18, 18 + row * 18, row, column));
             }
+        }
+        for (int column = 0; column < 2; column++){
+            this.addSlot(new DeckSlot(container, column + 52 /* 4*13 */, 107 + column * 18 /* 8+5*18+9 */, 90 /* 18+4*18 */, 4, column));
         }
 
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 9; column++) {
-                this.addSlot(new Slot(pPlayerInventory, column + row * 9 + 9, 8 + column * 18, 84 + row * 18));
+                this.addSlot(new Slot(pPlayerInventory, column + row * 9 + 9, 44 + column * 18 /* 8+2*18 */, 120 + row * 18 /* 84+2*18 */));
             }
         }
 
         for (int column = 0; column < 9; column++) {
-            this.addSlot(new Slot(pPlayerInventory, column, 8 + column * 18, 142));
+            this.addSlot(new Slot(pPlayerInventory, column, 44 + column * 18 /* 8+2*18 */, 178 /* 142+2*18 */));
         }
     }
 

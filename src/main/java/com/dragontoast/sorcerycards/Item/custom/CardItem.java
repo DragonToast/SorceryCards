@@ -23,6 +23,7 @@ public class CardItem extends Item {
     public CardItem(Properties pProperties) {
         super(pProperties.component(ModDataComponents.CARD.get(), new CardRecord(false, 13 , 4)));
     }
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack stack = pPlayer.getItemInHand(pUsedHand);
@@ -72,6 +73,8 @@ public class CardItem extends Item {
             }
         }
     }
+
+
 
     @Override
     public Component getName(ItemStack pStack) {

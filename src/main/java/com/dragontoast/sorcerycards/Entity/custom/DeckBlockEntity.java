@@ -19,7 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.stream.IntStream;
 
 public class DeckBlockEntity extends RandomizableContainerBlockEntity {
-    private NonNullList<ItemStack> itemStacks = NonNullList.withSize(27, ItemStack.EMPTY);
+    private NonNullList<ItemStack> itemStacks = NonNullList.withSize(54, ItemStack.EMPTY);
 
     public DeckBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.DECK_BLOCK_ENTITY.get(), pos, state);

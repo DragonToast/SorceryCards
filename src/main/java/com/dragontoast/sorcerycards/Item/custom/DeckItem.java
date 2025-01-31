@@ -1,6 +1,7 @@
 package com.dragontoast.sorcerycards.Item.custom;
 
 import com.dragontoast.sorcerycards.Entity.custom.DeckBlockEntity;
+import com.dragontoast.sorcerycards.Menu.custom.DeckMenu;
 import net.minecraft.client.particle.FireworkParticles;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -26,10 +27,11 @@ public class DeckItem extends BlockItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         if(pPlayer.isShiftKeyDown()){
-            pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.position().x, pPlayer.position().y, pPlayer.position().z,0,0,0);
+
         }
         return super.use(pLevel, pPlayer, pUsedHand);
     }
+
 
     @Override
     public InteractionResult useOn(UseOnContext pContext) {

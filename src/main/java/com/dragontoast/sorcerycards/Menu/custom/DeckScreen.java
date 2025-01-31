@@ -11,12 +11,13 @@ import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class DeckScreen extends AbstractContainerScreen<DeckMenu> {
-
     private static final ResourceLocation CONTAINER_TEXTURE = new ResourceLocation("sorcerycards:textures/container/deck.png");
     public DeckScreen(DeckMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
-        this.imageHeight++;
+        this.imageHeight = 201;
+        this.imageWidth = 247;
     }
+
     @Override
     public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);

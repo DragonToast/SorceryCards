@@ -19,7 +19,9 @@ public class DeckSlot extends Slot {
         if (pStack.has(ModDataComponents.CARD)){
             boolean rightSuit = pStack.get(ModDataComponents.CARD.get()).suitValue() == row;
             boolean rightValue = pStack.get(ModDataComponents.CARD.get()).value() == column;
-
+            if (pStack.get(ModDataComponents.CARD.get()).suitValue() == 4 && row == 4){
+                return true;
+            }
             return rightSuit && rightValue;
         }
         return false;
