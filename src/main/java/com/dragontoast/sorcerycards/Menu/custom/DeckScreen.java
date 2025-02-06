@@ -16,6 +16,8 @@ public class DeckScreen extends AbstractContainerScreen<DeckMenu> {
         super(pMenu, pPlayerInventory, pTitle);
         this.imageHeight = 201;
         this.imageWidth = 247;
+        this.inventoryLabelX = 44;
+        this.inventoryLabelY = 108;
     }
 
     @Override
