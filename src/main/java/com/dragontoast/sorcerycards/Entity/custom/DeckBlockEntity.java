@@ -1,6 +1,7 @@
 package com.dragontoast.sorcerycards.Entity.custom;
 
 import com.dragontoast.sorcerycards.Entity.ModBlockEntities;
+import com.dragontoast.sorcerycards.Item.components.ModDataComponents;
 import com.dragontoast.sorcerycards.Menu.custom.DeckMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -27,7 +28,7 @@ public class DeckBlockEntity extends RandomizableContainerBlockEntity {
 
     @Override
     protected Component getDefaultName() {
-        return Component.translatable("sorcerycard.block_entity.container.deck");
+        return Component.translatable("block.sorcerycards.deck");
     }
 
     @Override
@@ -70,5 +71,20 @@ public class DeckBlockEntity extends RandomizableContainerBlockEntity {
         if (!this.tryLoadLootTable(pTag) && pTag.contains("Items", 9)) {
             ContainerHelper.loadAllItems(pTag, this.itemStacks, pLevelRegistry);
         }
+    }
+
+    @Override
+    public boolean canPlaceItem(int pSlot, ItemStack pStack) {
+        if (pStack.has(ModDataComponents.CARD)){
+            int row = pSlot/13;
+            int column = pSlot - row*13;
+            boolean rightSuit = pStack.get(ModDataComponents.CARD.get()).suitValue() == row;
+            boolean rightValue = pStack.get(ModDataComponents.CARD.get()).value() == column;
+            if (pStack.get(ModDataComponents.CARD.get()).suitValue() == 4 && row == 4){
+                return true;
+            }
+            return rightSuit && rightValue;
+        }
+        return false;
     }
 }

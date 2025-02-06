@@ -3,9 +3,11 @@ package com.dragontoast.sorcerycards.Block.custom;
 import com.dragontoast.sorcerycards.Block.ModBlocks;
 import com.dragontoast.sorcerycards.Entity.ModBlockEntities;
 import com.dragontoast.sorcerycards.Entity.custom.DeckBlockEntity;
+import joptsimple.util.KeyValuePair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -32,7 +34,9 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
+import oshi.util.tuples.Pair;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DeckBlock extends Block implements EntityBlock {
@@ -78,7 +82,23 @@ public class DeckBlock extends Block implements EntityBlock {
         } else if (pPlayer.isSpectator()) {
             return InteractionResult.CONSUME;
         } else if (pLevel.getBlockEntity(pPos) instanceof DeckBlockEntity deckBlockEntity) {
-            pPlayer.openMenu(deckBlockEntity);
+            if(pPlayer.isShiftKeyDown()){
+                List<Pair<Integer, ItemStack>> items = new ArrayList<>();
+                for (int i = 0; i < 54; i++){
+                    if(!deckBlockEntity.getItem(i).isEmpty()) {
+                        items.add(new Pair<>(i, deckBlockEntity.getItem(i)));
+                    }
+                }
+                if (pPlayer.getInventory().getFreeSlot() != -1 && !items.isEmpty()) {
+                    int i = pLevel.random.nextInt(items.size());
+                    Pair<Integer, ItemStack> chosenPair = items.get(i);
+                    pPlayer.addItem(chosenPair.getB());
+                    deckBlockEntity.removeItem(chosenPair.getA(), 1);
+                }
+            }
+            else {
+                pPlayer.openMenu(deckBlockEntity);
+            }
             return InteractionResult.CONSUME;
         } else {
             return InteractionResult.PASS;

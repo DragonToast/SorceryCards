@@ -34,7 +34,7 @@ public class DeckItem extends BlockItem {
             pPlayer.openMenu(new MenuProvider() {
                 @Override
                 public Component getDisplayName() {
-                    return pPlayer.getItemInHand(pUsedHand).getDisplayName();
+                    return pPlayer.getItemInHand(pUsedHand).getHoverName();
                 }
 
                 @Nullable
@@ -43,23 +43,7 @@ public class DeckItem extends BlockItem {
                     return new DeckMenu(pContainerId, pPlayerInventory, new DeckContainer(pPlayer.getItemInHand(pUsedHand)));
                 }
             });
-            pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.position().x, pPlayer.position().y, pPlayer.position().z,0,0,0);
         }
         return super.use(pLevel, pPlayer, pUsedHand);
     }
-
-
-    @Override
-    public InteractionResult useOn(UseOnContext pContext) {
-        Player pPlayer = pContext.getPlayer();
-        if(pPlayer != null && pContext.getPlayer().isShiftKeyDown()){
-            pContext.getLevel().addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.position().x, pPlayer.position().y, pPlayer.position().z,0,0,0);
-            return InteractionResult.FAIL;
-        }
-        else {
-            return super.useOn(pContext);
-        }
-
-    }
-
 }
