@@ -1,5 +1,6 @@
 package com.dragontoast.sorcerycards.Menu.custom;
 
+import com.dragontoast.sorcerycards.SorceryCards;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -11,7 +12,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class DeckScreen extends AbstractContainerScreen<DeckMenu> {
-    private static final ResourceLocation CONTAINER_TEXTURE = new ResourceLocation("sorcerycards:textures/container/deck.png");
+    private static final ResourceLocation CONTAINER_TEXTURE = ResourceLocation.fromNamespaceAndPath(SorceryCards.MODID, "textures/container/deck.png");
     public DeckScreen(DeckMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         this.imageHeight = 201;

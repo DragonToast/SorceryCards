@@ -99,14 +99,14 @@ public class SorceryCards
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             event.enqueueWork(() -> {
-                ItemProperties.register(ModItems.CARD.get(), new ResourceLocation(MODID, "value"),
+                ItemProperties.register(ModItems.CARD.get(), ResourceLocation.fromNamespaceAndPath(MODID, "value"),
                         (stack, world, living, i) -> {
                             CardRecord record = stack.get(ModDataComponents.CARD);
                             if (record != null)
                                 return record.value();
                             else return 0;
                         });
-                ItemProperties.register(ModItems.CARD.get(), new ResourceLocation(MODID, "suit_value"),
+                ItemProperties.register(ModItems.CARD.get(), ResourceLocation.fromNamespaceAndPath(MODID, "suit_value"),
                         (stack, world, living, i) -> {
                             CardRecord record = stack.get(ModDataComponents.CARD);
                             if (record != null)

@@ -41,7 +41,7 @@ import java.util.List;
 
 public class DeckBlock extends Block implements EntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
-    public static final ResourceLocation CONTENTS = new ResourceLocation("contents");
+    public static final ResourceLocation CONTENTS = ResourceLocation.withDefaultNamespace("contents");
 
     public DeckBlock(Properties properties) {
         super(properties);
